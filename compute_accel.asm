@@ -3,8 +3,8 @@ kmh_to_ms: dq 0.277778 ; conversion from kmh to ms accdg to google
     
 section .text
 global calculate_accel
-
-; rcx rdx r8 gets put into this
+;(int num_cars, double* input, int* output);
+;       rcx        rdx           r8 
 calculate_accel:
     push rbx
     xor rbx, rbx
@@ -39,6 +39,7 @@ calculate_accel:
 
     inc rbx
     jmp .loop
+    
 .done:
     pop rbx
     ret
