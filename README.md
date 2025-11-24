@@ -38,7 +38,7 @@ We compared the execution time of the C function vs. the x86-64 Assembly functio
 
 ### Analysis
 As discussed in the demonstration video, the x86-64 Assembly implementation consistently outperformed the C implementation, achieving a massive **6.39x speedup** at 10,000 inputs. The reasons for this performance gap are:
-1.  **Direct Instruction Control:** In Assembly, we have absolute control over every instruction executed. We explicitly selected efficient hardware instructions (like `roundsd` for rounding) rather than relying on the compiler's translation. In contrast, the C compiler may make generalized optimization choices or call heavy library functions that are not strictly necessary for this specific logic.
+1.  **Direct Instruction Control:** In Assembly, programmers have absolute control over every instruction executed. I explicitly selected efficient hardware instructions (like `roundsd` for rounding) rather than relying on the compiler's translation. In contrast, the C compiler may make generalized optimization choices or call heavy library functions that are not strictly necessary for this specific logic.
 2.  **Lean Execution:** The Assembly implementation performs *only* the necessary operations (load, compute, convert, store). It strips away the overhead found in C, such as standard library safety checks (e.g., handling Infinity/NaNs) and complex stack frame management.
 3.  **Compounding Efficiency:** The performance difference is non-linear. While the Assembly is only slightly faster at small inputs (1.16x for 10 cars), the efficiency gains compound as the dataset grows, resulting in the drastic 6.39x speedup observed for 10,000 cars.
 
