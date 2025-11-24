@@ -13,7 +13,7 @@ The project demonstrates the use of:
 ### The Formula
 The acceleration is calculated using the formula:
 $$a = \frac{V_f - V_i}{t}$$
-*Where velocities are converted from km/h to m/s using the factor 0.277778.*
+*Where velocities are converted from km/h to m/s using the factor 0.2777777778.*
 
 ---
 
