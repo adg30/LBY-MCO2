@@ -1,5 +1,5 @@
 section .data
-kmh_to_ms: dq 0.277778 ; conversion from kmh to ms accdg to google
+kmh_to_ms: dq 0.2777777778 ; i added more 7s for accuracy
     
 section .text
 global calculate_accel
@@ -8,6 +8,8 @@ global calculate_accel
 calculate_accel:
     push rbx
     xor rbx, rbx
+    
+    
 
 .loop:
     cmp rbx, rcx
@@ -26,7 +28,7 @@ calculate_accel:
 
     ; compute acceleration 
     subsd xmm1, xmm0 ; vf-vi
-    movsd xmm3, [rel kmh_to_ms]
+    movsd xmm3, [rel kmh_to_ms] 
     mulsd xmm1, xmm3 ; x 0.277778 
     divsd xmm1, xmm2 ; / t
 
